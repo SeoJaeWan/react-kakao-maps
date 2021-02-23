@@ -17,6 +17,6 @@ Base Source : https://github.com/fed-gren/react-kakao-maps
 ---
 
 ```sh
-npm install --save react-kakao-maps #or
-yarn add react-kakao-maps
+npm install --save react-full-kakao-maps #or
+yarn add react-full-kakao-maps
 ```

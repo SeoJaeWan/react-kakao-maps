@@ -1,6 +1,6 @@
 {
-  "name": "react-kakao-maps",
-  "version": "0.0.12",
+  "name": "@seojw/react-kakao-maps",
+  "version": "0.0.1",
   "description": "React components for using kakao map api",
   "main": "lib/index.js",
   "scripts": {
@@ -15,18 +15,18 @@
     "Daum",
     "Map"
   ],
-  "homepage": "https://app.gitbook.com/@deveb22/s/react-kakao-maps/",
+  "homepage": "https://github.com/SeoJaeWan/react-kakao-maps",
   "author": {
-    "name": "gren",
-    "email": "deveb22@gmail.com",
-    "url": "https://github.com/fed-gren"
+    "name": "SeoJaeWan",
+    "email": "sjw7324@gmail.com",
+    "url": "https://github.com/seojaewan"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fed-gren/react-kakao-maps"
+    "url": "https://github.com/SeoJaeWan/react-kakao-maps"
   },
   "bugs": {
-    "url": "https://github.com/fed-gren/react-kakao-maps/issues"
+    "url": "https://github.com/SeoJaeWan/react-kakao-maps/issues"
   },
   "license": "ISC",
   "dependencies": {

@@ -1,8 +1,8 @@
-import React, {useState, useCallback} from 'react';
-import PropTypes from 'prop-types';
-import {useKakaoMapLoad} from '../../hooks';
-import MapContainer from '../MapContainer';
-import {defaultMapOptions} from '../../constants';
+import React, { useState, useCallback } from "react";
+import PropTypes from "prop-types";
+import { useKakaoMapLoad } from "../../hooks";
+import MapContainer from "../MapContainer";
+import { defaultMapOptions } from "../../constants";
 
 KakaoMap.propTypes = {
   apiUrl: PropTypes.string.isRequired,
@@ -20,34 +20,46 @@ export default function KakaoMap({
   children,
   ...options
 }) {
-  const {kakaoMapObj} = useKakaoMapLoad({
+  const { kakaoMapObj } = useKakaoMapLoad({
     apiUrl,
   });
 
   const [map, setMap] = useState(null);
 
   const loadHandler = useCallback(
-      (element) => {
-        if (!kakaoMapObj || !element) return;
-        const {
-          level: defaultLevel,
-          lat: defaultLat,
-          lng: defaultLng,
-        } = defaultMapOptions;
+    (element) => {
+      if (!kakaoMapObj || !element) return;
+      const {
+        level: defaultLevel,
+        lat: defaultLat,
+        lng: defaultLng,
+        draggable: defalutDraggable,
+        scrollwheel: defalutScrollwheel,
+        doubleClick: defalutDoubleClick,
+        doubleClickZoom: defalutDoubleClickZoom,
+      } = defaultMapOptions;
 
-        const {
-          level = defaultLevel,
-          lat = defaultLat,
-          lng = defaultLng,
-        } = options;
-        const map = new kakaoMapObj.maps.Map(element, {
-          level,
-          center: new kakaoMapObj.maps.LatLng(lat, lng),
-        });
+      const {
+        level = defaultLevel,
+        lat = defaultLat,
+        lng = defaultLng,
+        draggable = defalutDraggable,
+        scrollwheel = defalutScrollwheel,
+        doubleClick = defalutDoubleClick,
+        doubleClickZoom = defalutDoubleClickZoom,
+      } = options;
+      const map = new kakaoMapObj.maps.Map(element, {
+        level,
+        center: new kakaoMapObj.maps.LatLng(lat, lng),
+        draggable: draggable,
+        scrollwheel: scrollwheel,
+        disableDoubleClick: doubleClick,
+        disableDoubleClickZoom: doubleClickZoom,
+      });
 
-        setMap(map);
-      },
-      [kakaoMapObj]
+      setMap(map);
+    },
+    [kakaoMapObj]
   );
 
   return (
@@ -58,7 +70,7 @@ export default function KakaoMap({
       }}
       ref={loadHandler}
     >
-      <KakaoMapContext.Provider value={{kakaoMapObj, map}}>
+      <KakaoMapContext.Provider value={{ kakaoMapObj, map }}>
         {children}
       </KakaoMapContext.Provider>
     </MapContainer>

@@ -1,4 +1,4 @@
-# react-kakao-maps
+# react-full-kakao-maps
 
 Base Source : https://github.com/fed-gren/react-kakao-maps
 

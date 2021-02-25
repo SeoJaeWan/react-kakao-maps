@@ -8,7 +8,7 @@ Base Source : https://github.com/fed-gren/react-kakao-maps
 
 - Map
 - Marker
-- Custom Overlay X -(Test : now Work!!)
+- Custom Overlay &nbsp;X&nbsp; -&nbsp;(Test &nbsp;: &nbsp;not &nbsp;Work!!)
 
 <br/>
 
@@ -30,11 +30,19 @@ scrollwheel (default : false) <br />
 doubleClick (default : false) <br />
 doubleClickZoom (default : false) <br />
 
+<br/>
+<br/>
+<br/>
+
 ```
 <KakaoMap
     apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=434be05b9efb9664b63c52aa8e2210a7&autoload=false`}
     width={`100%`}
     height={`100%`}
+    draggable
+    scrollwheel
+    doubleClick
+    doubleClickZoom
     level={6}
     lat={35.171016}
     lng={126.855762}

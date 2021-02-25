@@ -25,7 +25,20 @@ yarn add react-full-kakao-maps
 
 Kakao Map(Props)
 
-draggable (default : false)
-scrollwheel (default : false)
-doubleClick (default : false)
-doubleClickZoom (default : false)
+draggable (default : false) <br />
+scrollwheel (default : false) <br />
+doubleClick (default : false) <br />
+doubleClickZoom (default : false) <br />
+
+```
+<KakaoMap
+    apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=434be05b9efb9664b63c52aa8e2210a7&autoload=false`}
+    width={`100%`}
+    height={`100%`}
+    level={6}
+    lat={35.171016}
+    lng={126.855762}
+>
+    <Marker lat={35.171016} lng={126.855762}></Marker>
+</KakaoMap>
+```

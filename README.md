@@ -8,7 +8,7 @@ Base Source : https://github.com/fed-gren/react-kakao-maps
 
 - Map
 - Marker
-- Custom Overlay
+- Custom Overlay X -(Test : now Work!!)
 
 <br/>
 
@@ -20,3 +20,12 @@ Base Source : https://github.com/fed-gren/react-kakao-maps
 npm install --save react-full-kakao-maps #or
 yarn add react-full-kakao-maps
 ```
+
+## Custom
+
+Kakao Map(Props)
+
+draggable (default : false)
+scrollwheel (default : false)
+doubleClick (default : false)
+doubleClickZoom (default : false)

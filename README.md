@@ -31,12 +31,16 @@ doubleClick (default : false) <br />
 doubleClickZoom (default : false) <br />
 
 <br/>
-<br/>
-<br/>
+
+## Example
 
 ```
+import { KakaoMap, Marker } from "react-full-kakao-maps";
+
+...
+
 <KakaoMap
-    apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=434be05b9efb9664b63c52aa8e2210a7&autoload=false`}
+    apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=your App key&autoload=false`}
     width={`100%`}
     height={`100%`}
     draggable
@@ -44,9 +48,9 @@ doubleClickZoom (default : false) <br />
     doubleClick
     doubleClickZoom
     level={6}
-    lat={35.171016}
-    lng={126.855762}
+    lat={lat}
+    lng={lng}
 >
-    <Marker lat={35.171016} lng={126.855762}></Marker>
+    <Marker lat={lat} lng={lng}></Marker>
 </KakaoMap>
 ```

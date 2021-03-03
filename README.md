@@ -8,7 +8,7 @@ Base Source : https://github.com/fed-gren/react-kakao-maps
 
 - Map
 - Marker
-- Custom Overlay &nbsp;X&nbsp; -&nbsp;(Test &nbsp;: &nbsp;not &nbsp;Work!!)
+- Custom Overlay
 
 <br/>
 

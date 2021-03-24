@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useKakaoMapLoad } from "../../hooks";
 import MapContainer from "../MapContainer";
@@ -17,7 +17,10 @@ export default function KakaoMap({
   apiUrl,
   width,
   height,
+  setLevel,
+  isEvent,
   children,
+  move,
   ...options
 }) {
   const { kakaoMapObj } = useKakaoMapLoad({
@@ -61,6 +64,19 @@ export default function KakaoMap({
     },
     [kakaoMapObj]
   );
+
+  useEffect(() => {
+    if (map)
+      map.setLevel(setLevel, isEvent ? { animate: { duration: 500 } } : null);
+  }, [map, setLevel]);
+
+  useEffect(() => {
+    if (map && move) {
+      const moveLatLon = new kakao.maps.LatLng(move[0], move[1]);
+
+      map.setCenter(moveLatLon);
+    }
+  }, [map, move]);
 
   return (
     <MapContainer

@@ -1,4 +1,10 @@
-import React, { useContext, useMemo, useCallback, useEffect } from "react";
+import React, {
+  useContext,
+  useMemo,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import PropTypes from "prop-types";
 import { KakaoMapContext } from "../KakaoMap";
 import { MarkerContext } from "../Marker";
@@ -11,9 +17,17 @@ CustomOverlay.propTypes = {
   lng: PropTypes.number,
 };
 
-export default function CustomOverlay({ content, lat, lng, ...restOptions }) {
+export default function CustomOverlay({
+  content,
+  lat,
+  lng,
+  onClick,
+  move,
+  ...restOptions
+}) {
   const { kakaoMapObj, map } = useContext(KakaoMapContext);
   const { marker, height: markerHeight } = useContext(MarkerContext);
+  const [overlay, setOverlay] = useState(null);
 
   const getPosition = useCallback(
     (marker) => ({
@@ -30,6 +44,7 @@ export default function CustomOverlay({ content, lat, lng, ...restOptions }) {
             <CustomOverlayContainer
               {...{ content }}
               bottom={`${markerHeight}px`}
+              onClick={onClick}
             />
           )
         : ReactDOMServer.renderToString(content),
@@ -60,9 +75,18 @@ export default function CustomOverlay({ content, lat, lng, ...restOptions }) {
       ...restOptions,
     });
     customOverlay.setMap(map);
+    setOverlay(customOverlay);
 
     return () => customOverlay.setMap(null);
   }, [map, overlayState]);
+
+  useEffect(() => {
+    if (overlay && move) {
+      const moveLatLon = new kakao.maps.LatLng(move[0], move[1]);
+
+      overlay.setPosition(moveLatLon);
+    }
+  }, [overlay, move]);
 
   return null;
 }

@@ -54,3 +54,61 @@ import { KakaoMap, Marker } from "react-full-kakao-maps";
     <Marker lat={lat} lng={lng}></Marker>
 </KakaoMap>
 ```
+
+## Update
+
+### setLevel
+
+change Kakao Map Scale
+
+ex)
+
+```
+const [scale, setScale] = useState(0);
+
+<KakaoMap
+    apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=your App key&autoload=false`}
+    width={`100%`}
+    height={`100%`}
+    draggable
+    scrollwheel
+    doubleClick
+    doubleClickZoom
+    level={6}
+    lat={lat}
+    lng={lng}
+    //
+    setLevel={scale}
+    //
+>
+    <Marker lat={lat} lng={lng}></Marker>
+</KakaoMap>
+```
+
+### isEvent
+
+change Kakao Map Scale Motion (default : false)
+ex)
+
+```
+const [scale, setScale] = useState(0);
+
+<KakaoMap
+    apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=your App key&autoload=false`}
+    width={`100%`}
+    height={`100%`}
+    draggable
+    scrollwheel
+    doubleClick
+    doubleClickZoom
+    level={6}
+    lat={lat}
+    lng={lng}
+    setLevel={scale}
+    //
+    isEvent = {true}
+    //
+>
+    <Marker lat={lat} lng={lng}></Marker>
+</KakaoMap>
+```
